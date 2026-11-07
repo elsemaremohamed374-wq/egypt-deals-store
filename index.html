@@ -3,201 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Egypt Deals - عروض مصر</title>
+<title>Egypt Deals | متجر عروض مصر</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,Tahoma,sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-  background:#f4f6f8;
-  color:#111827;
+body {
+  font-family: Arial, Tahoma, sans-serif;
+  background: #f4f5f7;
+  color: #202b3c;
 }
 
-header{
-  background:#111827;
-  color:white;
-  padding:20px 15px;
-  text-align:center;
+header {
+  background: #172333;
+  color: white;
+  padding: 22px 6%;
 }
 
-.logo{
-  font-size:28px;
-  font-weight:bold;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-.logo span{
-  color:#f59e0b;
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #e0b85c;
+  direction: ltr;
 }
 
-.search{
-  max-width:650px;
-  margin:18px auto 0;
-  display:flex;
-  background:white;
-  border-radius:30px;
-  overflow:hidden;
+.nav span {
+  font-size: 14px;
+  color: #ddd;
 }
 
-.search input{
-  flex:1;
-  border:0;
-  outline:0;
-  padding:15px;
-  font-size:16px;
-  text-align:right;
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.search button{
-  border:0;
-  background:#f59e0b;
-  padding:0 22px;
-  font-size:18px;
-  cursor:pointer;
+.search {
+  margin: 22px 0;
 }
 
-.hero{
-  max-width:1100px;
-  margin:25px auto;
-  padding:45px 20px;
-  border-radius:22px;
-  text-align:center;
-  background:linear-gradient(135deg,#1f2937,#111827);
-  color:white;
+.search input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
 }
 
-.hero h1{
-  font-size:32px;
-  margin-bottom:12px;
+.hero {
+  background: linear-gradient(135deg,#172333,#304967);
+  color: white;
+  padding: 45px 25px;
+  border-radius: 18px;
+  margin-bottom: 30px;
 }
 
-.hero p{
-  font-size:18px;
-  color:#d1d5db;
+.hero h1 {
+  font-size: 29px;
+  margin-bottom: 14px;
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:0 15px 40px;
+.hero p {
+  color: #e1e6ed;
+  line-height: 1.8;
 }
 
-h2{
-  margin:25px 0 15px;
+.section-title {
+  font-size: 22px;
+  margin: 30px 0 18px;
 }
 
-.categories{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
 }
 
-.category{
-  background:white;
-  padding:20px 10px;
-  border-radius:15px;
-  text-align:center;
-  cursor:pointer;
-  box-shadow:0 3px 12px #00000010;
-  font-weight:bold;
+.category {
+  background: white;
+  padding: 20px 8px;
+  text-align: center;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #eee;
 }
 
-.category:hover{
-  transform:translateY(-2px);
+.category:hover {
+  border-color: #d3aa50;
 }
 
-.products{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:20px;
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
-.product{
-  background:white;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 3px 15px #00000012;
+.product {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px #0000000c;
 }
 
-.product img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  background:#eee;
+.product img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: white;
+  padding: 12px;
 }
 
-.product-content{
-  padding:15px;
+.product-info {
+  padding: 17px;
 }
 
-.product h3{
-  font-size:18px;
-  margin-bottom:10px;
+.product h3 {
+  font-size: 17px;
+  margin-bottom: 12px;
+  line-height: 1.6;
 }
 
-.price{
-  color:#e11d48;
-  font-size:21px;
-  font-weight:bold;
-  margin-bottom:12px;
+.price {
+  color: #b58a2e;
+  font-size: 21px;
+  font-weight: bold;
+  margin-bottom: 12px;
 }
 
-.old-price{
-  color:#888;
-  text-decoration:line-through;
-  font-size:14px;
-  margin-right:8px;
+.specs {
+  color: #687386;
+  font-size: 13px;
+  line-height: 1.8;
 }
 
-.deal{
-  display:block;
-  width:100%;
-  padding:12px;
-  border:0;
-  border-radius:10px;
-  background:#f59e0b;
-  color:#111;
-  font-size:16px;
-  font-weight:bold;
-  text-decoration:none;
-  text-align:center;
+.tag {
+  display: inline-block;
+  background: #f7efd9;
+  color: #8d6b20;
+  padding: 6px 10px;
+  border-radius: 7px;
+  font-size: 12px;
+  margin-bottom: 12px;
 }
 
-.no-results{
-  display:none;
-  background:white;
-  padding:25px;
-  text-align:center;
-  border-radius:15px;
-  margin-top:20px;
+footer {
+  background: #172333;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+  line-height: 2;
 }
 
-footer{
-  background:#111827;
-  color:#d1d5db;
-  text-align:center;
-  padding:25px 15px;
-  margin-top:30px;
+footer strong {
+  color: #e0b85c;
 }
 
-@media(max-width:700px){
-  .categories{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:25px;
-  }
+@media(max-width:500px) {
+  .hero h1 { font-size: 23px; }
+  .categories { grid-template-columns: repeat(3,1fr); }
 }
 </style>
 </head>
@@ -205,272 +183,122 @@ footer{
 <body>
 
 <header>
-
-  <div class="logo">
-    🇪🇬 Egypt <span>Deals</span>
+  <div class="nav">
+    <div class="logo">EGYPT DEALS</div>
+    <span>أفضل المنتجات والعروض في مصر</span>
   </div>
-
-  <div class="search">
-    <input
-      id="searchInput"
-      type="text"
-      placeholder="🔎 ابحث عن منتج..."
-      onkeyup="searchProducts()"
-    >
-
-    <button onclick="searchProducts()">بحث</button>
-  </div>
-
 </header>
-
-
-<section class="hero">
-
-  <h1>🔥 أفضل العروض في مكان واحد</h1>
-
-  <p>
-    اكتشف المنتجات والعروض المميزة من المتاجر الإلكترونية
-  </p>
-
-</section>
-
 
 <main class="container">
 
-  <h2>التصنيفات</h2>
+  <div class="search">
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="ابحث عن منتج..."
+      oninput="searchProducts()">
+  </div>
 
-  <div class="categories">
+  <section class="hero">
+    <h1>اكتشف أفضل العروض في مصر</h1>
+    <p>
+      بنساعدك تكتشف منتجات مميزة من أشهر المتاجر،
+      وتتعرف على أحدث الاختيارات في مكان واحد.
+    </p>
+  </section>
 
-    <div class="category" onclick="filterCategory('إلكترونيات')">
-      📱 إلكترونيات
+  <h2 class="section-title">تسوق حسب القسم</h2>
+
+  <section class="categories">
+    <div class="category" onclick="filterCategory('electronics')">
+      💻 إلكترونيات
     </div>
-
-    <div class="category" onclick="filterCategory('إكسسوارات')">
-      🎧 إكسسوارات
-    </div>
-
-    <div class="category" onclick="filterCategory('ملابس')">
+    <div class="category" onclick="filterCategory('clothes')">
       👕 ملابس
     </div>
-
-    <div class="category" onclick="filterCategory('المنزل')">
+    <div class="category" onclick="filterCategory('home')">
       🏠 المنزل
     </div>
+  </section>
 
-  </div>
+  <h2 class="section-title">منتجات مختارة</h2>
 
+  <section class="products">
 
-  <h2>🔥 عروض اليوم</h2>
-
-  <div id="products" class="products">
-
-    <div class="product" data-category="إلكترونيات">
+    <article class="product" data-category="electronics">
 
       <img
-        src="https://via.placeholder.com/600x400?text=Product"
-        alt="منتج إلكتروني"
-      >
+        src="IMG_2261105_24855_168.jpg"
+        alt="Xiaomi Gaming Monitor G27i">
 
-      <div class="product-content">
+      <div class="product-info">
 
-        <h3>سماعة لاسلكية</h3>
+        <span class="tag">اختيار مميز</span>
 
-        <div class="price">
-          499 جنيه
-          <span class="old-price">699 جنيه</span>
-        </div>
+        <h3>
+          شاشة Xiaomi Gaming Monitor G27i
+          مقاس 27 بوصة
+        </h3>
 
-        <a
-          class="deal"
-          href="#"
-          onclick="demoLink(event)"
-        >
-          شاهد العرض
-        </a>
+        <div class="price">7,999 جنيه</div>
 
-      </div>
-
-    </div>
-
-
-    <div class="product" data-category="إكسسوارات">
-
-      <img
-        src="https://via.placeholder.com/600x400?text=Product"
-        alt="إكسسوار"
-      >
-
-      <div class="product-content">
-
-        <h3>ساعة ذكية</h3>
-
-        <div class="price">
-          899 جنيه
-          <span class="old-price">1199 جنيه</span>
-        </div>
-
-        <a
-          class="deal"
-          href="#"
-          onclick="demoLink(event)"
-        >
-          شاهد العرض
-        </a>
+        <p class="specs">
+          دقة Full HD 1920×1080<br>
+          معدل تحديث 165Hz<br>
+          لوحة IPS<br>
+          استجابة 1ms GTG
+        </p>
 
       </div>
+    </article>
 
-    </div>
+  </section>
 
-
-    <div class="product" data-category="ملابس">
-
-      <img
-        src="https://via.placeholder.com/600x400?text=Product"
-        alt="ملابس"
-      >
-
-      <div class="product-content">
-
-        <h3>تيشيرت رياضي</h3>
-
-        <div class="price">
-          299 جنيه
-          <span class="old-price">399 جنيه</span>
-        </div>
-
-        <a
-          class="deal"
-          href="#"
-          onclick="demoLink(event)"
-        >
-          شاهد العرض
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="product" data-category="المنزل">
-
-      <img
-        src="https://via.placeholder.com/600x400?text=Product"
-        alt="منتج للمنزل"
-      >
-
-      <div class="product-content">
-
-        <h3>منتج للمنزل</h3>
-
-        <div class="price">
-          399 جنيه
-          <span class="old-price">550 جنيه</span>
-        </div>
-
-        <a
-          class="deal"
-          href="#"
-          onclick="demoLink(event)"
-        >
-          شاهد العرض
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div id="noResults" class="no-results">
-    ❌ مفيش منتجات مطابقة للبحث
-  </div>
+  <p id="noResults" style="display:none;text-align:center;padding:20px">
+    لا توجد منتجات مطابقة للبحث.
+  </p>
 
 </main>
 
-
 <footer>
-
-  <p>🇪🇬 Egypt Deals</p>
-  <p style="margin-top:8px;">
-    موقع تجريبي لعرض المنتجات والعروض
-  </p>
-
+  <strong>EGYPT DEALS</strong>
+  <p>اكتشف المنتجات والعروض في مكان واحد</p>
+  <p>© 2026 Egypt Deals</p>
 </footer>
-
 
 <script>
 
-function searchProducts(){
+function searchProducts() {
+  let input = document.getElementById("searchInput")
+    .value.toLowerCase();
 
-  let input =
-    document.getElementById("searchInput")
-    .value
-    .toLowerCase()
-    .trim();
-
-  let products =
-    document.querySelectorAll(".product");
-
+  let products = document.querySelectorAll(".product");
   let found = 0;
 
-  products.forEach(function(product){
-
-    let text =
-      product.innerText.toLowerCase();
-
-    if(text.includes(input)){
-
-      product.style.display = "block";
-      found++;
-
-    }else{
-
-      product.style.display = "none";
-
-    }
-
+  products.forEach(function(product) {
+    let match = product.innerText.toLowerCase().includes(input);
+    product.style.display = match ? "block" : "none";
+    if(match) found++;
   });
 
   document.getElementById("noResults").style.display =
     found === 0 ? "block" : "none";
 }
 
-
-function filterCategory(category){
-
-  let products =
-    document.querySelectorAll(".product");
-
+function filterCategory(category) {
+  let products = document.querySelectorAll(".product");
   let found = 0;
 
-  products.forEach(function(product){
-
-    if(product.dataset.category === category){
-
-      product.style.display = "block";
-      found++;
-
-    }else{
-
-      product.style.display = "none";
-
-    }
-
+  products.forEach(function(product) {
+    let match = product.dataset.category === category;
+    product.style.display = match ? "block" : "none";
+    if(match) found++;
   });
 
   document.getElementById("searchInput").value = "";
 
   document.getElementById("noResults").style.display =
     found === 0 ? "block" : "none";
-}
-
-
-function demoLink(event){
-
-  event.preventDefault();
-
-  alert("ده رابط تجريبي حاليًا. هنضيف رابط المنتج الحقيقي بعد كده.");
-
 }
 
 </script>
