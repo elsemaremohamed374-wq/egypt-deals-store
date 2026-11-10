@@ -1,10 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>تواصل معنا | EGYPT DEALS</title>
-    <meta name="description" content="تواصل مع فريق EGYPT DEALS للاستفسارات والاقتراحات.">
+    <meta name="description" content="تواصل مع فريق EGYPT DEALS للاستفسارات والاقتراحات والمساعدة بخصوص العروض والمنتجات وروابط التسوق.">
+
     <style>
         * {
             box-sizing: border-box;
@@ -13,30 +16,54 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            background: #0c1420;
             color: #222;
             direction: rtl;
         }
 
         header {
-            background: #111;
+            background: #101b29;
             color: white;
             text-align: center;
-            padding: 25px 15px;
+            padding: 22px 15px;
         }
 
         header h1 {
             margin: 0;
-            color: #e5b84b;
+            color: #e9bd59;
+        }
+
+        header p {
+            color: #ddd;
+            margin-bottom: 0;
+        }
+
+        nav {
+            background: #080e17;
+            padding: 14px 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 9px;
+            display: inline-block;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: #e9bd59;
         }
 
         .container {
             max-width: 800px;
+            width: calc(100% - 30px);
             margin: 40px auto;
             padding: 30px 20px;
             background: white;
             border-radius: 12px;
-            box-shadow: 0 2px 12px #00000012;
+            box-shadow: 0 2px 12px #00000020;
         }
 
         h2 {
@@ -53,11 +80,12 @@
             font-weight: bold;
             direction: ltr;
             margin: 15px 0;
+            overflow-wrap: anywhere;
         }
 
         .button {
             display: inline-block;
-            background: #111;
+            background: #101b29;
             color: white;
             padding: 12px 25px;
             border-radius: 7px;
@@ -72,7 +100,27 @@
         footer {
             text-align: center;
             padding: 20px;
-            color: #777;
+            color: #ddd;
+            background: #080e17;
+            line-height: 2;
+        }
+
+        footer a {
+            color: #e9bd59;
+            text-decoration: none;
+            margin: 0 7px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                margin: 5px 7px;
+                font-size: 14px;
+            }
+
+            .container {
+                margin: 25px auto;
+                padding: 25px 17px;
+            }
         }
     </style>
 </head>
@@ -84,14 +132,22 @@
     <p>أفضل العروض والمنتجات في مصر</p>
 </header>
 
+<nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من نحن</a>
+    <a href="privacy.html">سياسة الخصوصية</a>
+    <a href="contact.html">تواصل معنا</a>
+</nav>
+
 <div class="container">
+
     <h2>تواصل معنا</h2>
 
     <p>
         يسعدنا تواصلك معنا!
         إذا كان لديك أي استفسار أو اقتراح أو واجهت مشكلة
         أثناء استخدام موقع EGYPT DEALS،
-        يمكنك مراسلتنا عبر البريد الإلكتروني.
+        يمكنك مراسلتنا عبر البريد الإلكتروني الرسمي للموقع.
     </p>
 
     <h3>البريد الإلكتروني</h3>
@@ -112,10 +168,16 @@
         نحرص على مراجعة رسائلك والرد عليها في أقرب وقت ممكن.
         شكرًا لثقتك في EGYPT DEALS.
     </p>
+
 </div>
 
 <footer>
-    © 2026 EGYPT DEALS - جميع الحقوق محفوظة
+    <p>© 2026 EGYPT DEALS - جميع الحقوق محفوظة</p>
+
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من نحن</a>
+    <a href="privacy.html">سياسة الخصوصية</a>
+    <a href="contact.html">تواصل معنا</a>
 </footer>
 
 </body>
