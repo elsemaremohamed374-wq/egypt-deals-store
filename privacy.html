@@ -9,11 +9,7 @@
 <meta name="description" content="تعرف على سياسة الخصوصية واستخدام ملفات تعريف الارتباط وروابط التسويق بالعمولة في موقع EGYPT DEALS.">
 
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
 font-family:Arial,Tahoma,sans-serif;
@@ -33,7 +29,7 @@ font-size:25px;
 font-weight:bold;
 color:#e9bd59;
 direction:ltr;
-text-align:right;
+text-align:center;
 }
 
 .logo small{
@@ -41,6 +37,22 @@ display:block;
 font-size:11px;
 color:white;
 }
+
+nav{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+nav a:hover{color:#e9bd59}
 
 .container{
 width:92%;
@@ -81,8 +93,10 @@ padding-right:25px;
 color:#e0e4eb;
 }
 
-li{
-margin-bottom:8px;
+li{margin-bottom:8px}
+
+.content a:not(.back){
+color:#e9bd59;
 }
 
 .back{
@@ -109,18 +123,17 @@ color:#e8b943;
 font-size:22px;
 }
 
+footer a{
+color:#e9bd59;
+text-decoration:none;
+margin:0 8px;
+}
+
 @media(max-width:600px){
-.content{
-padding:20px;
-}
-
-h1{
-font-size:23px;
-}
-
-h2{
-font-size:18px;
-}
+.content{padding:20px}
+h1{font-size:23px}
+h2{font-size:18px}
+nav{gap:12px}
 }
 </style>
 </head>
@@ -132,6 +145,13 @@ font-size:18px;
 EGYPT DEALS
 <small>أفضل المنتجات والعروض في مصر</small>
 </div>
+
+<nav>
+<a href="index.html">الرئيسية</a>
+<a href="about.html">من نحن</a>
+<a href="contact.html">تواصل معنا</a>
+<a href="privacy.html">سياسة الخصوصية</a>
+</nav>
 </header>
 
 <main class="container">
@@ -184,7 +204,7 @@ EGYPT DEALS
 
 <p>
 عند الضغط على رابط منتج، قد يتم نقلك إلى موقع متجر إلكتروني آخر.
-تخضع عملية الشراء وسياسات الخصوصية وشروط الاستخدام الخاصة بهذا المتجر لسياساته الخاصة، ولسنا مسؤولين عن محتوى أو خدمات المواقع الخارجية.
+تخضع عملية الشراء وسياسات الخصوصية وشروط الاستخدام الخاصة بهذا المتجر لسياساته الخاصة.
 </p>
 
 <p>
@@ -207,11 +227,21 @@ EGYPT DEALS
 <h2>7. التواصل معنا</h2>
 
 <p>
-إذا كان لديك أي استفسار بخصوص سياسة الخصوصية أو روابط التسويق بالعمولة، يمكنك التواصل معنا من خلال صفحة التواصل بالموقع.
+إذا كان لديك أي استفسار بخصوص سياسة الخصوصية أو روابط التسويق بالعمولة، يمكنك التواصل معنا عبر البريد الإلكتروني:
+</p>
+
+<p style="text-align:center;direction:ltr">
+<a href="mailto:egyptdeals.contact@gmail.com">
+egyptdeals.contact@gmail.com
+</a>
 </p>
 
 <p style="color:#e9bd59;text-align:center;margin-top:25px;">
 EGYPT DEALS – عروض تستحق الاكتشاف.
+</p>
+
+<p style="text-align:center;font-size:13px;color:#aaa">
+آخر تحديث: 10 نوفمبر 2026
 </p>
 
 <a href="index.html" class="back">العودة إلى الرئيسية</a>
@@ -223,6 +253,12 @@ EGYPT DEALS – عروض تستحق الاكتشاف.
 <footer>
 <strong>EGYPT DEALS</strong>
 <p>© 2026 Egypt Deals - جميع الحقوق محفوظة</p>
+
+<p>
+<a href="about.html">من نحن</a>
+<a href="contact.html">تواصل معنا</a>
+<a href="privacy.html">سياسة الخصوصية</a>
+</p>
 </footer>
 
 </body>
