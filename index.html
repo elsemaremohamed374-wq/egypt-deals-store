@@ -67,9 +67,7 @@ header{
  white-space:nowrap;
 }
 
-.logo span{
- color:white;
-}
+.logo span{color:white}
 
 .logo small{
  display:block;
@@ -117,13 +115,9 @@ header{
 }
 
 .header-links a:hover,
-.nav-links a:hover{
- color:var(--gold);
-}
+.nav-links a:hover{color:var(--gold)}
 
-nav{
- border-top:1px solid #202d3b;
-}
+nav{border-top:1px solid #202d3b}
 
 .nav-links{
  display:flex;
@@ -149,17 +143,42 @@ nav{
  border:1px solid #65512e;
  border-radius:18px;
  overflow:hidden;
+ position:relative;
  display:flex;
  align-items:center;
  padding:45px;
- background:
- linear-gradient(90deg,rgba(5,12,23,.18),rgba(5,12,23,.92)),
- url('./hero-banner.jpg') center/cover,
- linear-gradient(110deg,#111d30,#34445b,#a67a39);
+ background:#0b1420;
+ isolation:isolate;
+}
+
+.hero-bg{
+ position:absolute;
+ inset:0;
+ width:100%;
+ height:100%;
+ object-fit:contain;
+ object-position:center;
+ z-index:-2;
+}
+
+.hero::after{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(
+  270deg,
+  rgba(5,12,23,.78) 0%,
+  rgba(5,12,23,.35) 42%,
+  rgba(5,12,23,.03) 100%
+ );
+ z-index:-1;
+ pointer-events:none;
 }
 
 .hero-content{
  max-width:620px;
+ position:relative;
+ z-index:1;
 }
 
 .hero-label{
@@ -180,15 +199,14 @@ nav{
  text-shadow:0 3px 10px #000;
 }
 
-.hero h1 span{
- color:var(--gold);
-}
+.hero h1 span{color:var(--gold)}
 
 .hero p{
- color:#eee;
+ color:#fff;
  font-size:17px;
  line-height:2;
  margin:10px 0 22px;
+ text-shadow:0 2px 5px #000;
 }
 
 .main-btn{
@@ -245,9 +263,7 @@ nav{
  filter:brightness(1.08);
 }
 
-.category .emoji{
- font-size:43px;
-}
+.category .emoji{font-size:43px}
 
 .category small{
  font-size:13px;
@@ -268,84 +284,29 @@ nav{
  margin-bottom:45px;
 }
 
-.product{
- background:#fff;
- color:#17202c;
- border-radius:14px;
- overflow:hidden;
- position:relative;
- box-shadow:0 5px 18px #0003;
- transition:.25s;
-}
+/* EMPTY PRODUCTS */
 
-.product:hover{
- transform:translateY(-5px);
- box-shadow:0 10px 25px #0005;
-}
-
-.product-image{
- height:230px;
- display:flex;
- justify-content:center;
- align-items:center;
- padding:15px;
- background:white;
-}
-
-.product-image img{
- width:100%;
- height:100%;
- object-fit:contain;
-}
-
-.product-info{
- padding:15px;
+.empty-products{
+ grid-column:1/-1;
  text-align:center;
-}
-
-.tag{
- display:inline-block;
- background:#fff0c5;
- color:#9c7015;
- padding:6px 12px;
- border-radius:20px;
- font-size:12px;
- margin-bottom:10px;
-}
-
-.product h3{
- font-size:16px;
- line-height:1.7;
- min-height:52px;
-}
-
-.price{
- color:#d49b18;
- font-size:23px;
- font-weight:bold;
- margin:12px 0;
-}
-
-.specs{
- color:#697586;
- font-size:13px;
+ padding:35px 20px;
+ background:#111e2e;
+ border:1px dashed #65512e;
+ border-radius:14px;
+ color:#cbd3df;
  line-height:2;
 }
 
-.buy-btn{
+.empty-products .emoji{
+ font-size:35px;
  display:block;
- width:100%;
- background:var(--gold);
- color:#152030;
- border-radius:9px;
- padding:12px;
- font-weight:bold;
- margin-top:14px;
- transition:.2s;
+ margin-bottom:10px;
 }
 
-.buy-btn:hover{
- background:#d6a32f;
+.empty-products h3{
+ color:var(--gold);
+ font-size:19px;
+ margin-bottom:5px;
 }
 
 /* NEWSLETTER */
@@ -370,31 +331,6 @@ nav{
 .newsletter p{
  color:#d1d6de;
  line-height:1.8;
-}
-
-.newsletter-form{
- display:flex;
- gap:8px;
- width:45%;
-}
-
-.newsletter-form input{
- flex:1;
- min-width:0;
- padding:13px;
- border-radius:9px;
- border:0;
- outline:none;
-}
-
-.newsletter-form button{
- background:var(--gold);
- color:#17202c;
- border:0;
- border-radius:9px;
- padding:12px 20px;
- font-weight:bold;
- cursor:pointer;
 }
 
 /* FOOTER */
@@ -424,9 +360,7 @@ footer{
  font-size:14px;
 }
 
-.footer-column a:hover{
- color:var(--gold);
-}
+.footer-column a:hover{color:var(--gold)}
 
 .footer-bottom{
  border-top:1px solid #263342;
@@ -435,13 +369,6 @@ footer{
  color:#abb3bf;
  font-size:13px;
  line-height:2;
-}
-
-#noResults{
- display:none;
- text-align:center;
- padding:35px;
- color:#ddd;
 }
 
 /* MOBILE */
@@ -475,34 +402,23 @@ footer{
   padding:28px;
  }
 
- .categories{
-  grid-template-columns:repeat(2,1fr);
- }
+ .categories{grid-template-columns:repeat(2,1fr)}
 
- .products{
-  grid-template-columns:repeat(2,minmax(0,1fr));
- }
+ .products{grid-template-columns:repeat(2,minmax(0,1fr))}
 
  .newsletter{
   flex-direction:column;
   text-align:center;
  }
 
- .newsletter-form{width:100%}
-
- .footer-grid{
-  grid-template-columns:repeat(2,1fr);
- }
-
+ .footer-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:480px){
 
  .container{width:94%}
 
- .header-links{
-  display:none;
- }
+ .header-links{display:none}
 
  .nav-links{
   gap:13px;
@@ -510,9 +426,7 @@ footer{
   padding:13px 0;
  }
 
- .nav-links a.active{
-  padding:8px 12px;
- }
+ .nav-links a.active{padding:8px 12px}
 
  .hero{
   min-height:250px;
@@ -521,9 +435,7 @@ footer{
  }
 
  .hero h1{font-size:29px}
-
  .hero p{font-size:13px}
-
  .hero-label{font-size:15px}
 
  .main-btn{
@@ -543,22 +455,7 @@ footer{
 
  .products{gap:10px}
 
- .product-image{height:155px;padding:9px}
-
- .product-info{padding:10px}
-
- .product h3{
-  font-size:13px;
-  min-height:55px;
- }
-
- .price{font-size:18px}
-
- .specs{font-size:11px}
-
- .buy-btn{font-size:13px;padding:10px}
-
- .tag{font-size:10px}
+ .empty-products{padding:25px 12px}
 
  .footer-grid{
   grid-template-columns:1fr 1fr;
@@ -566,17 +463,9 @@ footer{
  }
 
  .footer-column h3{font-size:15px}
-
  .footer-column a{font-size:12px}
 
  .newsletter{padding:22px 15px}
-
- .newsletter-form{
-  flex-direction:column;
- }
-
- .newsletter-form button{width:100%}
-
 }
 
 </style>
@@ -585,7 +474,6 @@ footer{
 <body>
 
 <header>
-
 <div class="container">
 
 <div class="topbar">
@@ -603,12 +491,11 @@ EGYPT <span>DEALS</span>
 <div class="search">
 <input type="search" id="searchInput"
 placeholder="ابحث عن منتج..."
-oninput="searchProducts()">
+aria-label="ابحث عن منتج">
 <button type="button" aria-label="بحث">⌕</button>
 </div>
 
 </div>
-
 </div>
 
 <nav>
@@ -620,7 +507,6 @@ oninput="searchProducts()">
 <a href="contact.html">✉ تواصل معنا</a>
 </div>
 </nav>
-
 </header>
 
 <main class="container">
@@ -628,6 +514,12 @@ oninput="searchProducts()">
 <!-- HERO -->
 
 <section class="hero">
+
+<img
+class="hero-bg"
+src="./hero-banner.jpg"
+alt=""
+aria-hidden="true">
 
 <div class="hero-content">
 
@@ -648,7 +540,6 @@ oninput="searchProducts()">
 </a>
 
 </div>
-
 </section>
 
 <!-- CATEGORIES -->
@@ -659,32 +550,28 @@ oninput="searchProducts()">
 
 <section class="categories">
 
-<div class="category cat1"
-onclick="filterCategory('electronics')">
+<div class="category cat1">
 <div class="emoji">📱</div>
 إلكترونيات
-<small>اكتشف المزيد ←</small>
+<small>قريباً المزيد ←</small>
 </div>
 
-<div class="category cat2"
-onclick="filterCategory('clothes')">
+<div class="category cat2">
 <div class="emoji">👕</div>
 ملابس وأزياء
-<small>اكتشف المزيد ←</small>
+<small>قريباً المزيد ←</small>
 </div>
 
-<div class="category cat3"
-onclick="filterCategory('home')">
+<div class="category cat3">
 <div class="emoji">🏠</div>
 الأجهزة المنزلية
-<small>اكتشف المزيد ←</small>
+<small>قريباً المزيد ←</small>
 </div>
 
-<div class="category cat4"
-onclick="filterCategory('accessories')">
+<div class="category cat4">
 <div class="emoji">🎧</div>
 إكسسوارات
-<small>اكتشف المزيد ←</small>
+<small>قريباً المزيد ←</small>
 </div>
 
 </section>
@@ -695,55 +582,19 @@ onclick="filterCategory('accessories')">
 منتجات مختارة
 </h2>
 
-<section class="products">
+<section class="products" id="productList">
 
-<article class="product" data-category="electronics">
-
-<div class="product-image">
-<img
-src="./IMG_٢٠٢٦١١٠٥_٢٠٤٨٥٥_168.jpg"
-alt="Xiaomi Gaming Monitor G27i">
+<div class="empty-products">
+<span class="emoji">🛍️</span>
+<h3>قريباً على EGYPT DEALS</h3>
+سيتم إضافة منتجات وعروض مميزة قريباً.
 </div>
-
-<div class="product-info">
-
-<span class="tag">⭐ اختيار مميز</span>
-
-<h3>
-Xiaomi Gaming Monitor G27i
-مقاس 27 بوصة
-</h3>
-
-<div class="price">7,999 جنيه</div>
-
-<p class="specs">
-دقة Full HD 1920×1080<br>
-معدل تحديث 165Hz<br>
-لوحة IPS<br>
-استجابة 1ms GTG
-</p>
-
-<a href="ضع_رابط_المنتج_هنا"
-target="_blank"
-rel="noopener noreferrer"
-class="buy-btn">
-اشتري الآن 🛒
-</a>
-
-</div>
-
-</article>
 
 </section>
-
-<p id="noResults">
-لا توجد منتجات مطابقة لهذا القسم أو البحث.
-</p>
 
 <!-- NEWSLETTER -->
 
 <section class="newsletter">
-
 <div>
 <h2>EGYPT DEALS</h2>
 <p>
@@ -752,7 +603,6 @@ class="buy-btn">
 قريباً المزيد من العروض والمنتجات المميزة.
 </p>
 </div>
-
 </section>
 
 </main>
@@ -760,7 +610,6 @@ class="buy-btn">
 <!-- FOOTER -->
 
 <footer>
-
 <div class="container">
 
 <div class="footer-grid">
@@ -796,61 +645,7 @@ class="buy-btn">
 </div>
 
 </div>
-
 </footer>
-
-<script>
-
-function searchProducts(){
-
-let input=document.getElementById("searchInput")
-.value.toLowerCase().trim();
-
-let products=document.querySelectorAll(".product");
-let found=0;
-
-products.forEach(function(product){
-
-let match=product.innerText.toLowerCase()
-.includes(input);
-
-product.style.display=match?"block":"none";
-
-if(match)found++;
-
-});
-
-document.getElementById("noResults")
-.style.display=found===0?"block":"none";
-
-}
-
-function filterCategory(category){
-
-let products=document.querySelectorAll(".product");
-let found=0;
-
-document.getElementById("searchInput").value="";
-
-products.forEach(function(product){
-
-let match=product.dataset.category===category;
-
-product.style.display=match?"block":"none";
-
-if(match)found++;
-
-});
-
-document.getElementById("noResults")
-.style.display=found===0?"block":"none";
-
-document.getElementById("products")
-.scrollIntoView({behavior:"smooth"});
-
-}
-
-</script>
 
 </body>
 </html>
