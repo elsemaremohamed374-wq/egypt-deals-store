@@ -8,7 +8,7 @@
 <meta name="google-site-verification" content="-SISVpQEblM5ZlyL2SlpM6J9ZKlx0VTJKQlv87eVcDA">
 
 <title>EGYPT DEALS | أفضل العروض في مصر</title>
-<meta name="description" content="اكتشف أفضل المنتجات والعروض في مصر. إلكترونيات وملابس وأجهزة منزلية بأسعار مميزة.">
+<meta name="description" content="اكتشف أفضل المنتجات والعروض في مصر. إلكترونيات وملابس وأجهزة منزلية ومكياج بأسعار مميزة.">
 
 <style>
 :root{
@@ -238,7 +238,7 @@ nav{border-top:1px solid #202d3b}
 
 .categories{
  display:grid;
- grid-template-columns:repeat(4,1fr);
+ grid-template-columns:repeat(4,minmax(0,1fr));
  gap:14px;
 }
 
@@ -274,8 +274,9 @@ nav{border-top:1px solid #202d3b}
 .cat2{background:linear-gradient(135deg,#c2dafa,#e5f0ff)}
 .cat3{background:linear-gradient(135deg,#ffe0b4,#fff0d8)}
 .cat4{background:linear-gradient(135deg,#d6d1fa,#eeeaff)}
+.cat5{background:linear-gradient(135deg,#f4c5cf,#fbe7df)}
 
-/* APPLIANCES BANNER */
+/* CATEGORY BANNERS */
 
 .category-slider{
  position:relative;
@@ -294,7 +295,6 @@ nav{border-top:1px solid #202d3b}
  width:100%;
  height:100%;
  object-fit:cover;
- opacity:1;
  display:block;
 }
 
@@ -606,6 +606,12 @@ aria-hidden="true">
 <small>قريباً المزيد ←</small>
 </div>
 
+<div class="category cat5">
+<div class="emoji">💄</div>
+المكياج والتجميل
+<small>قريباً المزيد ←</small>
+</div>
+
 </section>
 
 <!-- APPLIANCES BANNER -->
@@ -616,6 +622,18 @@ aria-hidden="true">
 src="./appliances-banner.jpg"
 class="category-slide"
 alt="الأجهزة المنزلية"
+onerror="this.style.display='none';">
+
+</section>
+
+<!-- MAKEUP BANNER -->
+
+<section class="category-slider" aria-label="قسم المكياج والتجميل">
+
+<img
+src="./makeup-banner.jpg"
+class="category-slide"
+alt="مستحضرات التجميل والمكياج"
 onerror="this.style.display='none';">
 
 </section>
@@ -692,4 +710,5 @@ onerror="this.style.display='none';">
 </footer>
 
 </body>
- </htm
+ </html>
+ 
