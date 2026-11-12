@@ -275,6 +275,34 @@ nav{border-top:1px solid #202d3b}
 .cat3{background:linear-gradient(135deg,#ffe0b4,#fff0d8)}
 .cat4{background:linear-gradient(135deg,#d6d1fa,#eeeaff)}
 
+/* CATEGORY SLIDER */
+
+.category-slider{
+ position:relative;
+ width:100%;
+ height:260px;
+ margin:30px 0;
+ overflow:hidden;
+ border-radius:18px;
+ border:1px solid #80642d;
+ background:#111e2e;
+ isolation:isolate;
+}
+
+.category-slide{
+ position:absolute;
+ inset:0;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ opacity:0;
+ transition:opacity 1s ease;
+}
+
+.category-slide.active{
+ opacity:1;
+}
+
 /* PRODUCTS */
 
 .products{
@@ -412,6 +440,15 @@ footer{
  }
 
  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:600px){
+
+ .category-slider{
+  height:170px;
+  margin:22px 0;
+ }
+
 }
 
 @media(max-width:480px){
@@ -576,6 +613,27 @@ aria-hidden="true">
 
 </section>
 
+<!-- APPLIANCES BANNER SLIDER -->
+
+<section class="category-slider" aria-label="عروض الأجهزة المنزلية">
+
+<img
+src="images/appliances-banner.jpg"
+class="category-slide active"
+alt="الأجهزة المنزلية">
+
+<img
+src="images/appliances-banner-2.jpg"
+class="category-slide"
+alt="أجهزة منزلية">
+
+<img
+src="images/appliances-banner-3.jpg"
+class="category-slide"
+alt="أحدث الأجهزة">
+
+</section>
+
 <!-- PRODUCTS -->
 
 <h2 class="section-title" id="products">
@@ -647,5 +705,24 @@ aria-hidden="true">
 </div>
 </footer>
 
+<!-- CATEGORY SLIDER SCRIPT -->
+
+<script>
+const slides = document.querySelectorAll(".category-slide");
+
+if (slides.length > 1) {
+ let currentSlide = 0;
+
+ setInterval(() => {
+  slides[currentSlide].classList.remove("active");
+
+  currentSlide = (currentSlide + 1) % slides.length;
+
+  slides[currentSlide].classList.add("active");
+ }, 3000);
+}
+</script>
+
 </body>
-</html>
+ </html>
+                                               
