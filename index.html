@@ -1,79 +1,1092 @@
-/* SMOOTH CATEGORY IMAGE SLIDER */
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="google-site-verification" content="-SISVpQEblM5ZlyL2SlpM6J9ZKlx0VTJKQlv87eVcDA">
+
+<title>EGYPT DEALS | أفضل العروض في مصر</title>
+<meta name="description" content="اكتشف أفضل المنتجات والعروض في مصر. إلكترونيات وملابس وأجهزة منزلية ومكياج وإكسسوارات بأسعار مميزة.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b1420">
+
+<link rel="icon" type="image/png" href="./logo.png">
+<link rel="apple-touch-icon" href="./logo.png">
+<link rel="manifest" href="./manifest.json">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="EGYPT DEALS">
+
+<style>
+:root{
+ --bg:#0b1420;
+ --panel:#111e2e;
+ --gold:#e9b943;
+ --white:#fff;
+ --muted:#b9c1ce;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+ font-family:Arial,Tahoma,sans-serif;
+ background:var(--bg);
+ color:var(--white);
+}
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
+.container{width:94%;max-width:1450px;margin:auto}
+
+/* HEADER */
+header{
+ background:#0b1420;
+ border-bottom:1px solid #80642d;
+ position:sticky;
+ top:0;
+ z-index:100;
+}
+.topbar{
+ min-height:75px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:20px;
+}
+.logo{
+ display:flex;
+ align-items:center;
+ flex-shrink:0;
+ color:var(--gold);
+ font-size:25px;
+ font-weight:900;
+ letter-spacing:1px;
+ white-space:nowrap;
+}
+.search{flex:1;max-width:480px;position:relative}
+.search input{
+ width:100%;
+ padding:14px 22px;
+ border-radius:30px;
+ border:1px solid #ddd;
+ outline:none;
+ font-size:14px;
+}
+.search button{
+ position:absolute;
+ left:4px;
+ top:4px;
+ bottom:4px;
+ width:45px;
+ border:0;
+ border-radius:25px;
+ background:var(--gold);
+ cursor:pointer;
+ font-size:19px;
+}
+.header-links{
+ display:flex;
+ gap:22px;
+ align-items:center;
+ color:#eee;
+ font-size:14px;
+}
+.header-links a:hover,.nav-links a:hover{color:var(--gold)}
+nav{border-top:1px solid #202d3b}
+.nav-links{
+ display:flex;
+ justify-content:center;
+ gap:35px;
+ padding:15px 0;
+ font-size:15px;
+ font-weight:bold;
+}
+.nav-links a.active{
+ background:var(--gold);
+ color:#17202c;
+ padding:10px 18px;
+ border-radius:12px;
+}
+
+/* HERO */
+.hero{
+ min-height:360px;
+ margin:22px auto 35px;
+ border:1px solid #65512e;
+ border-radius:18px;
+ overflow:hidden;
+ position:relative;
+ display:flex;
+ align-items:center;
+ padding:45px;
+ background:#0b1420;
+ isolation:isolate;
+}
+.hero-bg{
+ position:absolute;
+ inset:0;
+ width:100%;
+ height:100%;
+ object-fit:contain;
+ object-position:center;
+ z-index:-2;
+}
+.hero::after{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(
+  270deg,
+  rgba(5,12,23,.78) 0%,
+  rgba(5,12,23,.35) 42%,
+  rgba(5,12,23,.03) 100%
+ );
+ z-index:-1;
+ pointer-events:none;
+}
+.hero-content{
+ max-width:620px;
+ position:relative;
+ z-index:1;
+}
+.hero-label{
+ display:inline-block;
+ background:var(--gold);
+ color:#101827;
+ padding:9px 22px;
+ border-radius:12px;
+ font-weight:bold;
+ font-size:19px;
+ margin-bottom:14px;
+}
+.hero h1{
+ font-size:clamp(32px,5vw,55px);
+ line-height:1.5;
+ font-weight:900;
+ text-shadow:0 3px 10px #000;
+}
+.hero h1 span{color:var(--gold)}
+.hero p{
+ color:#fff;
+ font-size:17px;
+ line-height:2;
+ margin:10px 0 22px;
+ text-shadow:0 2px 5px #000;
+}
+.main-btn{
+ display:inline-block;
+ background:var(--gold);
+ color:#121c2a;
+ padding:14px 30px;
+ border-radius:30px;
+ font-weight:bold;
+ font-size:17px;
+ transition:.2s;
+}
+.main-btn:hover{
+ background:#ffcf5c;
+ transform:translateY(-3px);
+}
+
+/* SECTIONS */
+.section-title{
+ font-size:25px;
+ margin:35px 0 20px;
+ padding-right:12px;
+ border-right:4px solid var(--gold);
+}
+
+/* CATEGORIES */
+.categories{
+ display:grid;
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:14px;
+}
+.category{
+ width:100%;
+ min-height:135px;
+ border:0;
+ border-radius:14px;
+ padding:20px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ gap:12px;
+ color:#111;
+ font-size:19px;
+ font-weight:bold;
+ cursor:pointer;
+ transition:.25s;
+ text-decoration:none;
+}
+.category:hover{
+ transform:translateY(-5px);
+ filter:brightness(1.08);
+}
+.category .emoji{font-size:43px}
+.category small{font-size:13px;font-weight:normal}
+.cat1{background:linear-gradient(135deg,#f2b9c5,#f5e1ed)}
+.cat2{background:linear-gradient(135deg,#c2dafa,#e5f0ff)}
+.cat3{background:linear-gradient(135deg,#ffe0b4,#fff0d8)}
+.cat4{background:linear-gradient(135deg,#d6d1fa,#eeeaff)}
+.cat5{background:linear-gradient(135deg,#f4c5cf,#fbe7df)}
+
+/* SMOOTH AUTOMATIC IMAGE SLIDER */
+.category-slider{
+ position:relative;
+ width:100%;
+ height:260px;
+ margin:30px 0;
+ overflow:hidden;
+ border-radius:18px;
+ border:1px solid #80642d;
+ background:#111e2e;
+ isolation:isolate;
+}
+
+.category-slide{
+ position:absolute;
+ inset:0;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ object-position:center;
+ display:block;
+ opacity:0;
+ transition:opacity .8s ease-in-out;
+ will-change:opacity;
+ backface-visibility:hidden;
+}
+
+.category-slide.is-visible{
+ opacity:1;
+ z-index:2;
+}
+
+.category-slider img{
+ pointer-events:none;
+}
+
+/* PRODUCTS */
+.products{
+ display:grid;
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:16px;
+ margin-bottom:45px;
+}
+
+/* PRODUCT CARD */
+.product-card{
+ background:#111e2e;
+ border:1px solid #344254;
+ border-radius:15px;
+ overflow:hidden;
+ transition:.25s;
+ min-width:0;
+}
+.product-card:hover{
+ transform:translateY(-5px);
+ border-color:var(--gold);
+}
+.product-gallery{
+ padding:12px;
+ background:#fff;
+}
+.main-product-image{
+ width:100%;
+ height:220px;
+ object-fit:contain;
+ display:block;
+ border-radius:9px;
+ background:#fff;
+}
+.product-thumbnails{
+ display:flex;
+ gap:8px;
+ margin-top:10px;
+ justify-content:center;
+}
+.product-thumbnail{
+ width:55px;
+ height:55px;
+ padding:3px;
+ border:2px solid #ddd;
+ border-radius:8px;
+ background:#fff;
+ cursor:pointer;
+ overflow:hidden;
+}
+.product-thumbnail.active{
+ border-color:#d5a52e;
+}
+.product-thumbnail img{
+ width:100%;
+ height:100%;
+ object-fit:contain;
+}
+.product-info{padding:15px}
+.product-title{
+ font-size:15px;
+ line-height:1.8;
+ min-height:80px;
+ margin-bottom:10px;
+}
+.product-rating{
+ color:#ffc83d;
+ font-size:13px;
+ margin-bottom:12px;
+}
+.product-price{
+ display:flex;
+ align-items:center;
+ gap:9px;
+ flex-wrap:wrap;
+ margin-bottom:14px;
+}
+.current-price{
+ color:var(--gold);
+ font-size:23px;
+ font-weight:900;
+}
+.old-price{
+ color:#9ca6b5;
+ text-decoration:line-through;
+ font-size:14px;
+}
+.discount-badge{
+ background:#8d2525;
+ color:#fff;
+ padding:5px 9px;
+ border-radius:6px;
+ font-size:12px;
+ font-weight:bold;
+}
+.buy-btn{
+ display:block;
+ text-align:center;
+ background:var(--gold);
+ color:#101827;
+ padding:12px;
+ border-radius:9px;
+ font-weight:bold;
+ transition:.2s;
+}
+.buy-btn:hover{background:#ffcf5c}
+.product-note{
+ color:#aeb9c8;
+ font-size:11px;
+ line-height:1.8;
+ margin-top:12px;
+}
+
+/* NEWSLETTER */
+.newsletter{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:25px;
+ background:#111e2e;
+ border:1px solid #344254;
+ border-radius:17px;
+ padding:30px;
+ margin:40px 0;
+}
+.newsletter h2{
+ color:var(--gold);
+ margin-bottom:10px;
+}
+.newsletter p{
+ color:#d1d6de;
+ line-height:1.8;
+}
+
+/* FOOTER */
+footer{
+ background:#070d16;
+ border-top:1px solid #80642d;
+ padding:40px 0 20px;
+}
+.footer-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:30px;
+ padding-bottom:25px;
+}
+.footer-column h3{
+ color:var(--gold);
+ margin-bottom:15px;
+}
+.footer-column a{
+ display:block;
+ color:#c5cbd4;
+ margin:10px 0;
+ font-size:14px;
+}
+.footer-column a:hover{color:var(--gold)}
+.footer-bottom{
+ border-top:1px solid #263342;
+ padding-top:20px;
+ text-align:center;
+ color:#abb3bf;
+ font-size:13px;
+ line-height:2;
+}
+.affiliate-note{
+ color:#abb3bf;
+ font-size:12px;
+ line-height:1.9;
+ text-align:center;
+ margin:15px auto;
+ max-width:850px;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible{
+ outline:2px solid var(--gold);
+ outline-offset:3px;
+}
+
+/* MOBILE */
+@media(max-width:850px){
+ .topbar{
+  flex-wrap:wrap;
+  padding:15px 0;
+ }
+ .logo{font-size:22px}
+ .search{
+  order:3;
+  max-width:none;
+  flex-basis:100%;
+ }
+ .header-links{
+  gap:12px;
+  font-size:12px;
+ }
+ .nav-links{
+  justify-content:center;
+  gap:17px;
+  font-size:13px;
+  flex-wrap:wrap;
+ }
+ .hero{
+  min-height:290px;
+  padding:28px;
+ }
+ .categories{grid-template-columns:repeat(2,1fr)}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .newsletter{
+  flex-direction:column;
+  text-align:center;
+ }
+ .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:600px){
+ .category-slider{
+  height:170px;
+  margin:22px 0;
+ }
+}
+
+@media(max-width:480px){
+ .container{width:94%}
+ .header-links{display:none}
+ .nav-links{
+  gap:13px;
+  font-size:12px;
+  padding:13px 0;
+ }
+ .nav-links a.active{padding:8px 12px}
+ .hero{
+  min-height:250px;
+  padding:20px;
+  margin-top:15px;
+ }
+ .hero h1{font-size:29px}
+ .hero p{font-size:13px}
+ .hero-label{font-size:15px}
+ .main-btn{
+  padding:11px 22px;
+  font-size:14px;
+ }
+ .section-title{font-size:20px}
+ .category{
+  min-height:115px;
+  font-size:15px;
+  padding:12px 5px;
+ }
+ .category .emoji{font-size:32px}
+ .products{gap:10px}
+ .footer-grid{
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+ }
+ .footer-column h3{font-size:15px}
+ .footer-column a{font-size:12px}
+ .newsletter{padding:22px 15px}
+ .main-product-image{height:160px}
+ .product-thumbnail{
+  width:43px;
+  height:43px;
+ }
+ .product-info{padding:11px}
+ .product-title{
+  font-size:13px;
+  min-height:95px;
+ }
+ .current-price{font-size:19px}
+}
+
+/* REDUCED MOTION */
+@media(prefers-reduced-motion:reduce){
+ .category-slide{transition:none}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="container">
+  <div class="topbar">
+
+   <a href="index.html" class="logo">EGYPT DEALS</a>
+
+   <div class="header-links">
+    <a href="#categories">الأقسام</a>
+    <a href="#products">🛒 المنتجات</a>
+   </div>
+
+   <form class="search" id="searchForm" role="search">
+    <input
+     type="search"
+     id="searchInput"
+     placeholder="ابحث عن قسم أو منتج..."
+     aria-label="ابحث عن قسم أو منتج"
+    >
+    <button type="submit" aria-label="بحث">⌕</button>
+   </form>
+
+  </div>
+ </div>
+
+ <nav>
+  <div class="container nav-links">
+   <a href="index.html" class="active">⌂ الرئيسية</a>
+   <a href="#categories">▦ الأقسام</a>
+   <a href="#products">🔥 العروض</a>
+   <a href="about.html">من نحن</a>
+   <a href="contact.html">✉ تواصل معنا</a>
+  </div>
+ </nav>
+</header>
+
+<main class="container">
+
+ <!-- HERO -->
+ <section class="hero">
+
+  <img
+   class="hero-bg"
+   src="./hero-banner.jpg"
+   alt=""
+   aria-hidden="true"
+   onerror="this.style.display='none';"
+  >
+
+  <div class="hero-content">
+   <span class="hero-label">اكتشف</span>
+
+   <h1>
+    أفضل العروض<br>
+    <span>في مصر</span>
+   </h1>
+
+   <p>
+    منتجات مميزة.. أسعار أفضل.. تجربة تسوق أسهل.
+    اكتشف اختياراتك في مكان واحد.
+   </p>
+
+   <a href="#categories" class="main-btn">
+    تسوق الآن 🛒
+   </a>
+  </div>
+
+ </section>
+
+ <!-- CATEGORIES -->
+ <h2 class="section-title" id="categories">
+  تسوق حسب القسم
+ </h2>
+
+ <section class="categories">
+
+  <a class="category cat1" href="category.html?category=electronics">
+   <div class="emoji">📱</div>
+   إلكترونيات
+   <small>اكتشف القسم ←</small>
+  </a>
+
+  <a class="category cat2" href="category.html?category=fashion">
+   <div class="emoji">👕</div>
+   ملابس وأزياء
+   <small>اكتشف القسم ←</small>
+  </a>
+
+  <a class="category cat3" href="category.html?category=home">
+   <div class="emoji">🏠</div>
+   الأجهزة المنزلية
+   <small>اكتشف القسم ←</small>
+  </a>
+
+  <a class="category cat4" href="category.html?category=accessories">
+   <div class="emoji">🎧</div>
+   إكسسوارات
+   <small>اكتشف القسم ←</small>
+  </a>
+
+  <a class="category cat5" href="category.html?category=beauty">
+   <div class="emoji">💄</div>
+   المكياج والتجميل
+   <small>اكتشف القسم ←</small>
+  </a>
+
+ </section>
+
+ <!-- AUTOMATIC BANNER SLIDER -->
+ <section class="category-slider" aria-label="صور أقسام المتجر">
+
+  <img
+   id="categorySlideA"
+   class="category-slide is-visible"
+   src="./electronics-banner.jpg"
+   alt="عروض ومنتجات الإلكترونيات"
+  >
+
+  <img
+   id="categorySlideB"
+   class="category-slide"
+   src="./electronics-banner.jpg"
+   alt=""
+   aria-hidden="true"
+  >
+
+ </section>
+
+ <!-- PRODUCTS -->
+ <h2 class="section-title" id="products">
+  منتجات مختارة
+ </h2>
+
+ <section class="products" id="productList" aria-live="polite">
+
+  <article class="product-card" id="hesiming-product">
+
+   <div class="product-gallery">
+
+    <img
+     id="hesiming-main-image"
+     class="main-product-image"
+     src="./hesiming-1.jpg"
+     alt="مجموعة محولات الشحن المتعددة من HESIMING"
+    >
+
+    <div class="product-thumbnails">
+
+     <button
+      class="product-thumbnail active"
+      type="button"
+      data-image="./hesiming-1.jpg"
+      aria-label="عرض الصورة الأولى"
+     >
+      <img src="./hesiming-1.jpg" alt="">
+     </button>
+
+     <button
+      class="product-thumbnail"
+      type="button"
+      data-image="./hesiming-2.jpg"
+      aria-label="عرض الصورة الثانية"
+     >
+      <img src="./hesiming-2.jpg" alt="">
+     </button>
+
+     <button
+      class="product-thumbnail"
+      type="button"
+      data-image="./hesiming-3.jpg"
+      aria-label="عرض الصورة الثالثة"
+     >
+      <img src="./hesiming-3.jpg" alt="">
+     </button>
+
+     <button
+      class="product-thumbnail"
+      type="button"
+      data-image="./hesiming-4.jpg"
+      aria-label="عرض الصورة الرابعة"
+     >
+      <img src="./hesiming-4.jpg" alt="">
+     </button>
+
+    </div>
+   </div>
+
+   <div class="product-info">
+
+    <h3 class="product-title">
+     مجموعة محولات USB متعددة الاستخدامات من HESIMING،
+     مع كابل Type-C ومحولات Lightning وMicro USB وحامل هاتف
+    </h3>
+
+    <div class="product-rating">
+     ★★★★☆ 3.8/5
+     <span style="color:#b9c1ce"> | 1,519 تقييم</span>
+    </div>
+
+    <div class="product-price">
+     <span class="current-price">65 جنيه</span>
+     <span class="old-price">101.97 جنيه</span>
+     <span class="discount-badge">خصم 36%</span>
+    </div>
+
+    <a
+     class="buy-btn"
+     href="https://link.amazon/B0crAj3sO"
+     target="_blank"
+     rel="nofollow sponsored noopener"
+    >
+     شاهد المنتج على أمازون 🛒
+    </a>
+
+    <p class="product-note">
+     قد تختلف الأسعار والتوافر على أمازون.
+     بعض روابط الموقع روابط تسويق بالعمولة.
+    </p>
+
+   </div>
+  </article>
+
+ </section>
+
+ <!-- NEWSLETTER -->
+ <section class="newsletter">
+  <div>
+   <h2>EGYPT DEALS</h2>
+   <p>
+    اكتشف المنتجات والعروض في مكان واحد.<br>
+    قريباً المزيد من العروض والمنتجات المميزة.
+   </p>
+  </div>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="footer">
+
+ <div class="container">
+
+  <div class="footer-grid">
+
+   <div class="footer-column">
+    <h3>EGYPT DEALS</h3>
+    <p style="color:#bdc5d0;line-height:1.9;font-size:13px">
+     أفضل المنتجات والعروض في مصر. تسوق بذكاء ووفر أكثر.
+    </p>
+   </div>
+
+   <div class="footer-column">
+    <h3>روابط سريعة</h3>
+    <a href="index.html">الرئيسية</a>
+    <a href="#categories">الأقسام</a>
+    <a href="#products">العروض</a>
+    <a href="about.html">من نحن</a>
+   </div>
+
+   <div class="footer-column">
+    <h3>خدمة العملاء</h3>
+    <a href="contact.html">تواصل معنا</a>
+    <a href="privacy.html">سياسة الخصوصية</a>
+   </div>
+
+  </div>
+
+  <p class="affiliate-note">
+   قد يحتوي الموقع على روابط تسويق بالعمولة.
+   قد نحصل على عمولة عند الشراء من خلال بعض هذه الروابط،
+   دون تكلفة إضافية عليك.
+  </p>
+
+  <div class="footer-bottom">
+   © 2026 Egypt Deals - جميع الحقوق محفوظة
+   <br>
+   تسوق بذكاء .. ووفر أكثر ❤️
+  </div>
+
+ </div>
+</footer>
+
+<script>
+
+/* =================================
+   SMOOTH CATEGORY IMAGE SLIDER
+================================= */
 
 const slideImages = [
- {src:"./electronics-banner.jpg",alt:"الإلكترونيات والتكنولوجيا"},
- {src:"./fashion-banner.jpg",alt:"الملابس والأزياء"},
- {src:"./appliances-banner.jpg",alt:"الأجهزة المنزلية"},
- {src:"./makeup-banner.jpg",alt:"المكياج والتجميل"},
- {src:"./accessories-banner.jpg",alt:"الإكسسوارات"}
+ {
+  src:"./electronics-banner.jpg",
+  alt:"الإلكترونيات والتكنولوجيا"
+ },
+ {
+  src:"./fashion-banner.jpg",
+  alt:"الملابس والأزياء"
+ },
+ {
+  src:"./appliances-banner.jpg",
+  alt:"الأجهزة المنزلية"
+ },
+ {
+  src:"./makeup-banner.jpg",
+  alt:"المكياج والتجميل"
+ },
+ {
+  src:"./accessories-banner.jpg",
+  alt:"الإكسسوارات"
+ }
 ];
 
-const categorySlide = document.getElementById("categorySlide");
+const slideA = document.getElementById("categorySlideA");
+const slideB = document.getElementById("categorySlideB");
 
-let slideIndex = 0;
-let sliderTimer = null;
-let isChanging = false;
+let currentSlideIndex = 0;
+let activeSlide = slideA;
+let nextSlide = slideB;
+let availableSlides = [];
 
-// تحميل الصور مسبقاً
-function preloadImage(src) {
+const motionPreference = window.matchMedia(
+ "(prefers-reduced-motion: reduce)"
+);
+
+const transitionDuration = motionPreference.matches ? 0 : 800;
+const slideInterval = 3000;
+
+function preloadBanner(item){
+
  return new Promise((resolve) => {
-  const img = new Image();
 
-  img.onload = () => resolve(src);
-  img.onerror = () => resolve(null);
+  const image = new Image();
 
-  img.src = src;
+  image.onload = function(){
+   resolve(item);
+  };
+
+  image.onerror = function(){
+   console.warn("تعذر تحميل صورة البنر:", item.src);
+   resolve(null);
+  };
+
+  image.src = item.src;
+
  });
+
 }
 
-async function startCategorySlider() {
- if (!categorySlide) return;
+async function initializeSlider(){
 
- const loadedImages = await Promise.all(
-  slideImages.map(async (item) => {
-   const result = await preloadImage(item.src);
-   return result ? item : null;
-  })
+ const results = await Promise.all(
+  slideImages.map(preloadBanner)
  );
 
- const availableImages = loadedImages.filter(Boolean);
+ availableSlides = results.filter(Boolean);
 
- if (availableImages.length < 2) return;
+ if(availableSlides.length < 2){
+  return;
+ }
 
- // تحديد الصورة الحالية
- const currentSrc = categorySlide.getAttribute("src");
- const currentIndex = availableImages.findIndex(
-  item => item.src === currentSrc
+ const firstIndex = availableSlides.findIndex(
+  item => item.src === activeSlide.getAttribute("src")
  );
 
- slideIndex = currentIndex >= 0 ? currentIndex : 0;
+ currentSlideIndex = firstIndex >= 0 ? firstIndex : 0;
 
- // بدء التبديل بعد اكتمال التحميل
- sliderTimer = setInterval(() => {
+ activeSlide.src = availableSlides[currentSlideIndex].src;
+ activeSlide.alt = availableSlides[currentSlideIndex].alt;
 
-  if (isChanging) return;
+ setInterval(changeBanner, slideInterval);
 
-  isChanging = true;
-  categorySlide.classList.add("fade");
-
-  setTimeout(() => {
-
-   slideIndex = (slideIndex + 1) % availableImages.length;
-
-   categorySlide.src = availableImages[slideIndex].src;
-   categorySlide.alt = availableImages[slideIndex].alt;
-
-   requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-     categorySlide.classList.remove("fade");
-     isChanging = false;
-    });
-   });
-
-  }, 650);
-
- }, 3500);
 }
 
-startCategorySlider();
-  
+function changeBanner(){
+
+ if(availableSlides.length < 2){
+  return;
+ }
+
+ currentSlideIndex =
+  (currentSlideIndex + 1) % availableSlides.length;
+
+ const nextImage = availableSlides[currentSlideIndex];
+
+ // تجهيز الصورة الجديدة قبل إظهارها
+ nextSlide.src = nextImage.src;
+ nextSlide.alt = nextImage.alt;
+
+ // التأكد من اكتمال التحميل
+ if(!nextSlide.complete || nextSlide.naturalWidth === 0){
+
+  const retry = () => {
+   if(nextSlide.naturalWidth > 0){
+    showNextBanner();
+   }
+  };
+
+  nextSlide.addEventListener("load", retry, {once:true});
+  return;
+ }
+
+ requestAnimationFrame(() => {
+  requestAnimationFrame(showNextBanner);
+ });
+
+}
+
+function showNextBanner(){
+
+ // إظهار الصورة الجديدة تدريجياً
+ nextSlide.classList.add("is-visible");
+
+ // إخفاء الصورة القديمة تدريجياً
+ activeSlide.classList.remove("is-visible");
+
+ // تبديل الطبقتين
+ const previousSlide = activeSlide;
+ activeSlide = nextSlide;
+ nextSlide = previousSlide;
+
+}
+
+// تشغيل السلايدر بعد تجهيز الصور
+initializeSlider();
+
+
+/* =================================
+   SEARCH: OPEN MATCHING CATEGORY
+================================= */
+
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+
+function normalizeText(text){
+
+ return text.toLowerCase().trim()
+  .replace(/[أإآ]/g,"ا")
+  .replace(/ة/g,"ه")
+  .replace(/ى/g,"ي");
+
+}
+
+const categoryKeywords = [
+
+ {
+  id:"electronics",
+  words:[
+   "الكترونيات",
+   "الكترونيه",
+   "موبايل",
+   "موبايلات",
+   "هواتف",
+   "تكنولوجيا",
+   "سماعات",
+   "شاشات"
+  ]
+ },
+
+ {
+  id:"fashion",
+  words:[
+   "ملابس",
+   "ملابس رجالي",
+   "ملابس حريمي",
+   "ازياء",
+   "موضه",
+   "تيشيرت",
+   "بنطلون",
+   "هودي"
+  ]
+ },
+
+ {
+  id:"home",
+  words:[
+   "اجهزه منزليه",
+   "اجهزه المنزل",
+   "الاجهزه",
+   "مطبخ",
+   "غساله",
+   "ثلاجه",
+   "خلاط"
+  ]
+ },
+
+ {
+  id:"accessories",
+  words:[
+   "اكسسوارات",
+   "اكسسوار",
+   "ساعه",
+   "ساعات",
+   "شنط",
+   "نظارات",
+   "محافظ"
+  ]
+ },
+
+ {
+  id:"beauty",
+  words:[
+   "مكياج",
+   "تجميل",
+   "ميك اب",
+   "عنايه بالبشره",
+   "عطور",
+   "مستحضرات تجميل"
+  ]
+ }
+
+];
+
+searchForm.addEventListener("submit",function(event){
+
+ event.preventDefault();
+
+ const query = normalizeText(searchInput.value);
+
+ if(!query){
+  searchInput.focus();
+  return;
+ }
+
+ const match = categoryKeywords.find(category =>
+
+  category.words.some(word =>
+   normalizeText(word) === query ||
+   query.includes(normalizeText(word))
+  )
+
+ );
+
+ if(match){
+
+  window.location.href =
+   "category.html?category=" +
+   encodeURIComponent(match.id) +
+   "&q=" +
+   encodeURIComponent(searchInput.value);
+
+ }else{
+
+  window.location.href =
+   "category.ht
