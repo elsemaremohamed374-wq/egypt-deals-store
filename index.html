@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,11 +10,13 @@
 <title>EGYPT DEALS | أفضل العروض في مصر</title>
 <meta name="description" content="اكتشف أفضل المنتجات والعروض في مصر. إلكترونيات وملابس وأجهزة منزلية ومكياج وإكسسوارات بأسعار مميزة.">
 
-<!-- APP ICON & PWA -->
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b1420">
+
 <link rel="icon" type="image/png" href="./logo.png">
 <link rel="apple-touch-icon" href="./logo.png">
 <link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#0b1420">
+
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="EGYPT DEALS">
@@ -43,6 +46,8 @@ body{
 
 a{text-decoration:none;color:inherit}
 
+button,input{font-family:inherit}
+
 .container{
  width:94%;
  max-width:1450px;
@@ -70,7 +75,6 @@ header{
 .logo{
  display:flex;
  align-items:center;
- text-decoration:none;
  flex-shrink:0;
  color:var(--gold);
  font-size:25px;
@@ -244,7 +248,9 @@ nav{border-top:1px solid #202d3b}
 }
 
 .category{
+ width:100%;
  min-height:135px;
+ border:0;
  border-radius:14px;
  padding:20px;
  display:flex;
@@ -269,6 +275,11 @@ nav{border-top:1px solid #202d3b}
 .category small{
  font-size:13px;
  font-weight:normal;
+}
+
+.category.active{
+ outline:3px solid var(--gold);
+ outline-offset:3px;
 }
 
 .cat1{background:linear-gradient(135deg,#f2b9c5,#f5e1ed)}
@@ -307,8 +318,6 @@ nav{border-top:1px solid #202d3b}
  gap:16px;
  margin-bottom:45px;
 }
-
-/* EMPTY PRODUCTS */
 
 .empty-products{
  grid-column:1/-1;
@@ -393,6 +402,26 @@ footer{
  color:#abb3bf;
  font-size:13px;
  line-height:2;
+}
+
+/* AFFILIATE DISCLOSURE */
+
+.affiliate-note{
+ color:#abb3bf;
+ font-size:12px;
+ line-height:1.9;
+ text-align:center;
+ margin:15px auto;
+ max-width:850px;
+}
+
+/* ACCESSIBILITY */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible{
+ outline:2px solid var(--gold);
+ outline-offset:3px;
 }
 
 /* MOBILE */
@@ -518,12 +547,14 @@ footer{
 <a href="#products">🛒 المنتجات</a>
 </div>
 
-<div class="search">
-<input type="search" id="searchInput"
-placeholder="ابحث عن منتج..."
-aria-label="ابحث عن منتج">
-<button type="button" aria-label="بحث">⌕</button>
-</div>
+<form class="search" id="searchForm" role="search">
+<input
+ type="search"
+ id="searchInput"
+ placeholder="ابحث عن منتج..."
+ aria-label="ابحث عن منتج">
+<button type="submit" aria-label="بحث">⌕</button>
+</form>
 
 </div>
 </div>
@@ -547,7 +578,8 @@ aria-label="ابحث عن منتج">
 class="hero-bg"
 src="./hero-banner.jpg"
 alt=""
-aria-hidden="true">
+aria-hidden="true"
+onerror="this.style.display='none';">
 
 <div class="hero-content">
 
@@ -576,63 +608,78 @@ aria-hidden="true">
 
 <section class="categories">
 
-<div class="category cat1">
+<button type="button" class="category cat1" data-category="electronics">
 <div class="emoji">📱</div>
 إلكترونيات
-<small>قريباً المزيد ←</small>
-</div>
+<small>اكتشف القسم ←</small>
+</button>
 
-<div class="category cat2">
+<button type="button" class="category cat2" data-category="fashion">
 <div class="emoji">👕</div>
 ملابس وأزياء
-<small>قريباً المزيد ←</small>
-</div>
+<small>اكتشف القسم ←</small>
+</button>
 
-<div class="category cat3">
+<button type="button" class="category cat3" data-category="home">
 <div class="emoji">🏠</div>
 الأجهزة المنزلية
-<small>قريباً المزيد ←</small>
-</div>
+<small>اكتشف القسم ←</small>
+</button>
 
-<div class="category cat4">
+<button type="button" class="category cat4" data-category="accessories">
 <div class="emoji">🎧</div>
 إكسسوارات
-<small>قريباً المزيد ←</small>
-</div>
+<small>اكتشف القسم ←</small>
+</button>
 
-<div class="category cat5">
+<button type="button" class="category cat5" data-category="beauty">
 <div class="emoji">💄</div>
 المكياج والتجميل
-<small>قريباً المزيد ←</small>
-</div>
+<small>اكتشف القسم ←</small>
+</button>
 
 </section>
 
 <section class="category-slider" aria-label="قسم الإلكترونيات">
-<img src="./electronics-banner.jpg" class="category-slide" alt="الإلكترونيات والتكنولوجيا" onerror="this.style.display='none';">
+<img src="./electronics-banner.jpg"
+class="category-slide"
+alt="الإلكترونيات والتكنولوجيا"
+onerror="this.closest('.category-slider').hidden=true;">
 </section>
 
 <section class="category-slider" aria-label="قسم الملابس والأزياء">
-<img src="./fashion-banner.jpg" class="category-slide" alt="الملابس والأزياء الرجالية" onerror="this.style.display='none';">
+<img src="./fashion-banner.jpg"
+class="category-slide"
+alt="الملابس والأزياء الرجالية"
+onerror="this.closest('.category-slider').hidden=true;">
 </section>
 
 <section class="category-slider" aria-label="عروض الأجهزة المنزلية">
-<img src="./appliances-banner.jpg" class="category-slide" alt="الأجهزة المنزلية" onerror="this.style.display='none';">
+<img src="./appliances-banner.jpg"
+class="category-slide"
+alt="الأجهزة المنزلية"
+onerror="this.closest('.category-slider').hidden=true;">
 </section>
 
 <section class="category-slider" aria-label="قسم المكياج والتجميل">
-<img src="./makeup-banner.jpg" class="category-slide" alt="مستحضرات التجميل والمكياج" onerror="this.style.display='none';">
+<img src="./makeup-banner.jpg"
+class="category-slide"
+alt="مستحضرات التجميل والمكياج"
+onerror="this.closest('.category-slider').hidden=true;">
 </section>
 
 <section class="category-slider" aria-label="قسم الإكسسوارات">
-<img src="./accessories-banner.jpg" class="category-slide" alt="الإكسسوارات" onerror="this.style.display='none';">
+<img src="./accessories-banner.jpg"
+class="category-slide"
+alt="الإكسسوارات"
+onerror="this.closest('.category-slider').hidden=true;">
 </section>
 
 <h2 class="section-title" id="products">
 منتجات مختارة
 </h2>
 
-<section class="products" id="productList">
+<section class="products" id="productList" aria-live="polite">
 
 <div class="empty-products">
 <span class="emoji">🛍️</span>
@@ -655,7 +702,7 @@ aria-hidden="true">
 
 </main>
 
-<footer>
+<footer id="footer">
 <div class="container">
 
 <div class="footer-grid">
@@ -684,6 +731,12 @@ aria-hidden="true">
 
 </div>
 
+<p class="affiliate-note">
+قد يحتوي الموقع على روابط تسويق بالعمولة.
+قد نحصل على عمولة عند الشراء من خلال بعض هذه الروابط،
+دون تكلفة إضافية عليك.
+</p>
+
 <div class="footer-bottom">
 © 2026 Egypt Deals - جميع الحقوق محفوظة
 <br>
@@ -693,6 +746,130 @@ aria-hidden="true">
 </div>
 </footer>
 
+<script>
+
+/* PRODUCT SEARCH AND CATEGORY FILTER */
+
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+const productList = document.getElementById("productList");
+const categoryButtons = document.querySelectorAll(".category");
+
+let selectedCategory = "all";
+
+function normalizeText(text){
+ return text
+  .toLowerCase()
+  .trim()
+  .replace(/[أإآ]/g,"ا")
+  .replace(/ة/g,"ه")
+  .replace(/ى/g,"ي");
+}
+
+function filterProducts(){
+
+ const cards = Array.from(
+  productList.querySelectorAll(".product-card")
+ );
+
+ const searchValue = normalizeText(searchInput.value);
+
+ let visibleCount = 0;
+
+ cards.forEach(card => {
+
+  const productName = normalizeText(
+   card.dataset.name || card.textContent
+  );
+
+  const productCategory = card.dataset.category || "";
+
+  const matchesSearch =
+   !searchValue || productName.includes(searchValue);
+
+  const matchesCategory =
+   selectedCategory === "all" ||
+   productCategory === selectedCategory;
+
+  const visible = matchesSearch && matchesCategory;
+
+  card.hidden = !visible;
+
+  if(visible) visibleCount++;
+
+ });
+
+ let message = productList.querySelector(".empty-products");
+
+ if(cards.length === 0){
+
+  if(message){
+   message.innerHTML = `
+    <span class="emoji">🛍️</span>
+    <h3>قريباً على EGYPT DEALS</h3>
+    سيتم إضافة منتجات وعروض مميزة قريباً.
+   `;
+  }
+
+  return;
+ }
+
+ if(visibleCount === 0){
+
+  if(!message){
+   message = document.createElement("div");
+   message.className = "empty-products";
+   productList.appendChild(message);
+  }
+
+  message.innerHTML = `
+   <span class="emoji">🔎</span>
+   <h3>لا توجد منتجات مطابقة</h3>
+   جرب البحث بكلمة أخرى أو اختر قسماً مختلفاً.
+  `;
+
+ }else if(message){
+
+  message.remove();
+
+ }
+
+}
+
+searchForm.addEventListener("submit", function(event){
+ event.preventDefault();
+ filterProducts();
+});
+
+searchInput.addEventListener("input", filterProducts);
+
+categoryButtons.forEach(button => {
+
+ button.addEventListener("click", function(){
+
+  const category = this.dataset.category;
+
+  selectedCategory =
+   selectedCategory === category ? "all" : category;
+
+  categoryButtons.forEach(item => {
+   item.classList.toggle(
+    "active",
+    item.dataset.category === selectedCategory
+   );
+  });
+
+  filterProducts();
+
+  document.getElementById("products").scrollIntoView({
+   behavior:"smooth"
+  });
+
+ });
+
+});
+
+</script>
+
 </body>
- </html>
- 
+</html>
