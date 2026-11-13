@@ -59,22 +59,17 @@ header{
 }
 
 .logo{
- font-size:29px;
- font-weight:900;
- color:var(--gold);
- direction:ltr;
- white-space:nowrap;
+ display:flex;
+ align-items:center;
+ text-decoration:none;
+ flex-shrink:0;
 }
 
-.logo span{color:white}
-
-.logo small{
+.logo img{
+ width:100px;
+ height:65px;
+ object-fit:contain;
  display:block;
- color:#d3b76e;
- font-size:11px;
- direction:rtl;
- text-align:right;
- margin-top:4px;
 }
 
 .search{
@@ -402,7 +397,10 @@ footer{
   padding:15px 0;
  }
 
- .logo{font-size:23px}
+ .logo img{
+  width:85px;
+  height:58px;
+ }
 
  .search{
   order:3;
@@ -510,8 +508,7 @@ footer{
 <div class="topbar">
 
 <a href="index.html" class="logo">
-EGYPT <span>DEALS</span>
-<small>أفضل المنتجات والعروض في مصر</small>
+<img src="./logo.png" alt="EGYPT DEALS Logo">
 </a>
 
 <div class="header-links">
