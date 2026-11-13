@@ -9,6 +9,15 @@
 <title>EGYPT DEALS | أفضل العروض في مصر</title>
 <meta name="description" content="اكتشف أفضل المنتجات والعروض في مصر. إلكترونيات وملابس وأجهزة منزلية ومكياج وإكسسوارات بأسعار مميزة.">
 
+<!-- APP ICON & PWA -->
+<link rel="icon" type="image/png" href="./logo.png">
+<link rel="apple-touch-icon" href="./logo.png">
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0b1420">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="EGYPT DEALS">
+
 <style>
 :root{
  --bg:#0b1420;
@@ -63,13 +72,11 @@ header{
  align-items:center;
  text-decoration:none;
  flex-shrink:0;
-}
-
-.logo img{
- width:100px;
- height:65px;
- object-fit:contain;
- display:block;
+ color:var(--gold);
+ font-size:25px;
+ font-weight:900;
+ letter-spacing:1px;
+ white-space:nowrap;
 }
 
 .search{
@@ -397,10 +404,7 @@ footer{
   padding:15px 0;
  }
 
- .logo img{
-  width:85px;
-  height:58px;
- }
+ .logo{font-size:22px}
 
  .search{
   order:3;
@@ -507,9 +511,7 @@ footer{
 
 <div class="topbar">
 
-<a href="index.html" class="logo">
-<img src="./logo.png" alt="EGYPT DEALS Logo">
-</a>
+<a href="index.html" class="logo">EGYPT DEALS</a>
 
 <div class="header-links">
 <a href="#categories">الأقسام</a>
@@ -539,8 +541,6 @@ aria-label="ابحث عن منتج">
 
 <main class="container">
 
-<!-- HERO -->
-
 <section class="hero">
 
 <img
@@ -569,8 +569,6 @@ aria-hidden="true">
 
 </div>
 </section>
-
-<!-- CATEGORIES -->
 
 <h2 class="section-title" id="categories">
 تسوق حسب القسم
@@ -610,57 +608,25 @@ aria-hidden="true">
 
 </section>
 
-<!-- ELECTRONICS BANNER -->
-
 <section class="category-slider" aria-label="قسم الإلكترونيات">
-<img
-src="./electronics-banner.jpg"
-class="category-slide"
-alt="الإلكترونيات والتكنولوجيا"
-onerror="this.style.display='none';">
+<img src="./electronics-banner.jpg" class="category-slide" alt="الإلكترونيات والتكنولوجيا" onerror="this.style.display='none';">
 </section>
-
-<!-- FASHION BANNER -->
 
 <section class="category-slider" aria-label="قسم الملابس والأزياء">
-<img
-src="./fashion-banner.jpg"
-class="category-slide"
-alt="الملابس والأزياء الرجالية"
-onerror="this.style.display='none';">
+<img src="./fashion-banner.jpg" class="category-slide" alt="الملابس والأزياء الرجالية" onerror="this.style.display='none';">
 </section>
-
-<!-- APPLIANCES BANNER -->
 
 <section class="category-slider" aria-label="عروض الأجهزة المنزلية">
-<img
-src="./appliances-banner.jpg"
-class="category-slide"
-alt="الأجهزة المنزلية"
-onerror="this.style.display='none';">
+<img src="./appliances-banner.jpg" class="category-slide" alt="الأجهزة المنزلية" onerror="this.style.display='none';">
 </section>
-
-<!-- MAKEUP BANNER -->
 
 <section class="category-slider" aria-label="قسم المكياج والتجميل">
-<img
-src="./makeup-banner.jpg"
-class="category-slide"
-alt="مستحضرات التجميل والمكياج"
-onerror="this.style.display='none';">
+<img src="./makeup-banner.jpg" class="category-slide" alt="مستحضرات التجميل والمكياج" onerror="this.style.display='none';">
 </section>
-
-<!-- ACCESSORIES BANNER -->
 
 <section class="category-slider" aria-label="قسم الإكسسوارات">
-<img
-src="./accessories-banner.jpg"
-class="category-slide"
-alt="الإكسسوارات"
-onerror="this.style.display='none';">
+<img src="./accessories-banner.jpg" class="category-slide" alt="الإكسسوارات" onerror="this.style.display='none';">
 </section>
-
-<!-- PRODUCTS -->
 
 <h2 class="section-title" id="products">
 منتجات مختارة
@@ -676,8 +642,6 @@ onerror="this.style.display='none';">
 
 </section>
 
-<!-- NEWSLETTER -->
-
 <section class="newsletter">
 <div>
 <h2>EGYPT DEALS</h2>
@@ -690,8 +654,6 @@ onerror="this.style.display='none';">
 </section>
 
 </main>
-
-<!-- FOOTER -->
 
 <footer>
 <div class="container">
