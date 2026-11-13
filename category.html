@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>أقسام EGYPT DEALS</title>
+  <meta name="description" content="تصفح أقسام EGYPT DEALS واكتشف أفضل العروض والمنتجات في مصر.">
+  <meta name="theme-color" content="#0b1420">
+
+  <link rel="icon" type="image/png" href="./logo.png">
+  <link rel="apple-touch-icon" href="./logo.png">
+  <link rel="manifest" href="./manifest.json">
+
+  <style>
+    :root {
+      --bg: #0b1420;
+      --panel: #111e2e;
+      --gold: #e9b943;
+      --white: #ffffff;
+      --muted: #aab5c2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #101c2b;
+      border-bottom: 1px solid rgba(233,185,67,.25);
+      padding: 18px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .home-link {
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 10px 17px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .home-link:hover {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .category-header {
+      text-align: center;
+      padding: 55px 15px 35px;
+    }
+
+    .category-header .small-title {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    .category-header h1 {
+      font-size: clamp(28px, 6vw, 43px);
+      margin-bottom: 14px;
+    }
+
+    .category-header p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .gold-line {
+      width: 75px;
+      height: 3px;
+      background: var(--gold);
+      margin: 22px auto 0;
+      border-radius: 5px;
+    }
+
+    .products-section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 15px 5% 70px;
+    }
+
+    .section-title {
+      color: var(--gold);
+      font-size: 20px;
+      margin-bottom: 22px;
+    }
+
+    .empty-state {
+      background: var(--panel);
+      border: 1px solid rgba(233,185,67,.2);
+      border-radius: 15px;
+      padding: 45px 20px;
+      text-align: center;
+    }
+
+    .empty-state .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .empty-state h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .empty-state p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .search-result {
+      color: var(--gold);
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 10px;
+      border-top: 1px solid rgba(233,185,67,.15);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">EGYPT DEALS</div>
+    <a class="home-link" href="./index.html">العودة للرئيسية ←</a>
+  </header>
+
+  <section class="category-header">
+    <div class="small-title">EGYPT DEALS COLLECTION</div>
+    <h1 id="categoryTitle">تصفح القسم</h1>
+    <p id="categoryDescription">اكتشف المنتجات والعروض المميزة.</p>
+    <div class="gold-line"></div>
+    <div class="search-result" id="searchResult"></div>
+  </section>
+
+  <main class="products-section">
+    <h2 class="section-title">المنتجات والعروض</h2>
+
+    <div class="empty-state" id="emptyState">
+      <div class="icon">🛍️</div>
+      <h2>قريباً على EGYPT DEALS</h2>
+      <p>
+        نعمل على تجهيز أفضل المنتجات والعروض لهذا القسم.
+        <br>
+        ترقبوا الإطلاق قريباً!
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    جميع الحقوق محفوظة © <span>EGYPT DEALS</span>
+  </footer>
+
+  <script>
+    const categories = {
+      electronics: {
+        title: "الإلكترونيات والتكنولوجيا",
+        description: "اكتشف أحدث الأجهزة والإلكترونيات والعروض التقنية.",
+        pageTitle: "الإلكترونيات | EGYPT DEALS"
+      },
+
+      fashion: {
+        title: "الأزياء والملابس",
+        description: "تصفح أحدث الملابس والأزياء والاختيارات المميزة.",
+        pageTitle: "الأزياء والملابس | EGYPT DEALS"
+      },
+
+      home: {
+        title: "الأجهزة المنزلية والديكور",
+        description: "كل ما تحتاجه لمنزلك من أجهزة ومستلزمات وديكورات.",
+        pageTitle: "المنزل والديكور | EGYPT DEALS"
+      },
+
+      accessories: {
+        title: "الإكسسوارات",
+        description: "اكتشف الإكسسوارات والساعات والشنط والنظارات.",
+        pageTitle: "الإكسسوارات | EGYPT DEALS"
+      },
+
+      beauty: {
+        title: "المكياج والتجميل",
+        description: "اكتشف منتجات التجميل والعناية الشخصية.",
+        pageTitle: "المكياج والتجميل | EGYPT DEALS"
+      },
+
+      all: {
+        title: "جميع المنتجات",
+        description: "تصفح جميع المنتجات والعروض المتاحة على EGYPT DEALS.",
+        pageTitle: "جميع المنتجات | EGYPT DEALS"
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const categoryId = params.get("category") || "all";
+    const searchQuery = params.get("q") || "";
+
+    const category = categories[categoryId] || categories.all;
+
+    document.getElementById("categoryTitle").textContent = category.title;
+    document.getElementById("categoryDescription").textContent = category.description;
+    document.title = category.pageTitle;
+
+    if (searchQuery) {
+      document.getElementById("searchResult").textContent =
+        "نتيجة البحث عن: " + searchQuery;
+    }
+  </script>
+
+</body>
+</html>
+  
