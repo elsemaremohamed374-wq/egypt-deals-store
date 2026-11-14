@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -5,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>أقسام EGYPT DEALS</title>
+
   <meta name="description" content="تصفح أقسام EGYPT DEALS واكتشف أفضل العروض والمنتجات في مصر.">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0b1420">
 
   <link rel="icon" type="image/png" href="./logo.png">
@@ -109,7 +112,140 @@
       margin-bottom: 22px;
     }
 
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .product-card {
+      background: var(--panel);
+      border: 1px solid #344254;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: .25s;
+      min-width: 0;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .product-gallery {
+      padding: 12px;
+      background: #fff;
+    }
+
+    .main-product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      display: block;
+      border-radius: 9px;
+      background: #fff;
+    }
+
+    .product-thumbnails {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .product-thumbnail {
+      width: 48px;
+      height: 48px;
+      padding: 3px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .product-thumbnail.active {
+      border-color: #d5a52e;
+    }
+
+    .product-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-title {
+      font-size: 15px;
+      line-height: 1.8;
+      min-height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .product-rating {
+      color: #ffc83d;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .current-price {
+      color: var(--gold);
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .old-price {
+      color: #9ca6b5;
+      text-decoration: line-through;
+      font-size: 14px;
+    }
+
+    .discount-badge {
+      background: #8d2525;
+      color: #fff;
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .buy-btn {
+      display: block;
+      text-align: center;
+      background: var(--gold);
+      color: #101827;
+      padding: 12px;
+      border-radius: 9px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    .buy-btn:hover {
+      background: #ffcf5c;
+    }
+
+    .product-note {
+      color: #aeb9c8;
+      font-size: 11px;
+      line-height: 1.8;
+      margin-top: 12px;
+    }
+
     .empty-state {
+      grid-column: 1 / -1;
       background: var(--panel);
       border: 1px solid rgba(233,185,67,.2);
       border-radius: 15px;
@@ -150,44 +286,96 @@
     footer span {
       color: var(--gold);
     }
+
+    @media(max-width:850px) {
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media(max-width:480px) {
+      .products {
+        gap: 10px;
+      }
+
+      .main-product-image {
+        height: 160px;
+      }
+
+      .product-info {
+        padding: 11px;
+      }
+
+      .product-title {
+        font-size: 13px;
+        min-height: 95px;
+      }
+
+      .current-price {
+        font-size: 19px;
+      }
+
+      .product-thumbnail {
+        width: 40px;
+        height: 40px;
+      }
+    }
   </style>
 </head>
 
-<body>
+<body data-page="category">
 
   <header>
     <div class="logo">EGYPT DEALS</div>
-    <a class="home-link" href="./index.html">العودة للرئيسية ←</a>
+    <a class="home-link" href="./index.html">
+      العودة للرئيسية ←
+    </a>
   </header>
 
   <section class="category-header">
-    <div class="small-title">EGYPT DEALS COLLECTION</div>
-    <h1 id="categoryTitle">تصفح القسم</h1>
-    <p id="categoryDescription">اكتشف المنتجات والعروض المميزة.</p>
+
+    <div class="small-title">
+      EGYPT DEALS COLLECTION
+    </div>
+
+    <h1 id="categoryTitle">
+      تصفح القسم
+    </h1>
+
+    <p id="categoryDescription">
+      اكتشف المنتجات والعروض المميزة.
+    </p>
+
     <div class="gold-line"></div>
+
     <div class="search-result" id="searchResult"></div>
+
   </section>
 
   <main class="products-section">
-    <h2 class="section-title">المنتجات والعروض</h2>
 
-    <div class="empty-state" id="emptyState">
-      <div class="icon">🛍️</div>
-      <h2>قريباً على EGYPT DEALS</h2>
-      <p>
-        نعمل على تجهيز أفضل المنتجات والعروض لهذا القسم.
-        <br>
-        ترقبوا الإطلاق قريباً!
-      </p>
-    </div>
+    <h2 class="section-title">
+      المنتجات والعروض
+    </h2>
+
+    <section
+      class="products"
+      id="productList"
+      aria-live="polite">
+    </section>
+
   </main>
 
   <footer>
-    جميع الحقوق محفوظة © <span>EGYPT DEALS</span>
+    جميع الحقوق محفوظة ©
+    <span>EGYPT DEALS</span>
   </footer>
+
+  <script src="./products.js"></script>
 
   <script>
     const categories = {
+
       electronics: {
         title: "الإلكترونيات والتكنولوجيا",
         description: "اكتشف أحدث الأجهزة والإلكترونيات والعروض التقنية.",
@@ -223,16 +411,23 @@
         description: "تصفح جميع المنتجات والعروض المتاحة على EGYPT DEALS.",
         pageTitle: "جميع المنتجات | EGYPT DEALS"
       }
+
     };
 
     const params = new URLSearchParams(window.location.search);
+
     const categoryId = params.get("category") || "all";
+
     const searchQuery = params.get("q") || "";
 
     const category = categories[categoryId] || categories.all;
 
-    document.getElementById("categoryTitle").textContent = category.title;
-    document.getElementById("categoryDescription").textContent = category.description;
+    document.getElementById("categoryTitle").textContent =
+      category.title;
+
+    document.getElementById("categoryDescription").textContent =
+      category.description;
+
     document.title = category.pageTitle;
 
     if (searchQuery) {
@@ -243,4 +438,3 @@
 
 </body>
 </html>
-  
