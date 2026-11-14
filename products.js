@@ -18,9 +18,9 @@ const ED_PRODUCTS = [
       "./hesiming-4.jpg"
     ],
 
-    price: "65 جنيه",
-    oldPrice: "101.97 جنيه",
-    discount: "خصم 36%",
+    price: "55 جنيه",
+oldPrice: "101.97 جنيه",
+discount: "خصم 46%",
     rating: "3.8/5",
     reviews: "1,519 تقييم",
 
