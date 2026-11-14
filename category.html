@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -327,6 +326,7 @@
 
   <header>
     <div class="logo">EGYPT DEALS</div>
+
     <a class="home-link" href="./index.html">
       العودة للرئيسية ←
     </a>
@@ -354,7 +354,7 @@
 
   <main class="products-section">
 
-    <h2 class="section-title">
+    <h2 class="section-title" id="productsTitle">
       المنتجات والعروض
     </h2>
 
@@ -374,7 +374,17 @@
   <script src="./products.js"></script>
 
   <script>
+    /* =====================================
+       EGYPT DEALS - CATEGORIES
+    ===================================== */
+
     const categories = {
+
+      offers: {
+        title: "🔥 عروض EGYPT DEALS",
+        description: "جميع منتجاتنا من كل الأقسام في مكان واحد.",
+        pageTitle: "العروض | EGYPT DEALS"
+      },
 
       electronics: {
         title: "الإلكترونيات والتكنولوجيا",
@@ -408,11 +418,16 @@
 
       all: {
         title: "جميع المنتجات",
-        description: "تصفح جميع المنتجات والعروض المتاحة على EGYPT DEALS.",
+        description: "تصفح جميع المنتجات المتاحة على EGYPT DEALS.",
         pageTitle: "جميع المنتجات | EGYPT DEALS"
       }
 
     };
+
+
+    /* =====================================
+       GET URL PARAMETERS
+    ===================================== */
 
     const params = new URLSearchParams(window.location.search);
 
@@ -422,6 +437,11 @@
 
     const category = categories[categoryId] || categories.all;
 
+
+    /* =====================================
+       UPDATE PAGE INFORMATION
+    ===================================== */
+
     document.getElementById("categoryTitle").textContent =
       category.title;
 
@@ -430,10 +450,31 @@
 
     document.title = category.pageTitle;
 
+
+    /* =====================================
+       UPDATE PRODUCTS SECTION TITLE
+    ===================================== */
+
+    const productsTitle = document.getElementById("productsTitle");
+
+    if (categoryId === "offers") {
+      productsTitle.textContent = "🔥 جميع العروض والمنتجات";
+    } else if (categoryId === "all") {
+      productsTitle.textContent = "جميع المنتجات";
+    } else {
+      productsTitle.textContent = "منتجات القسم";
+    }
+
+
+    /* =====================================
+       SEARCH RESULT
+    ===================================== */
+
     if (searchQuery) {
       document.getElementById("searchResult").textContent =
         "نتيجة البحث عن: " + searchQuery;
     }
+
   </script>
 
 </body>
