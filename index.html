@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -268,6 +267,7 @@ nav{border-top:1px solid #202d3b}
 .cat3{background:linear-gradient(135deg,#ffe0b4,#fff0d8)}
 .cat4{background:linear-gradient(135deg,#d6d1fa,#eeeaff)}
 .cat5{background:linear-gradient(135deg,#f4c5cf,#fbe7df)}
+.cat6{background:linear-gradient(135deg,#f5d477,#fff0b8)}
 
 .category-slider{
  position:relative;
@@ -658,7 +658,7 @@ input:focus-visible{
   <div class="container nav-links">
    <a href="index.html" class="active">⌂ الرئيسية</a>
    <a href="#categories">▦ الأقسام</a>
-   <a href="#products">🔥 العروض</a>
+   <a href="category.html?category=offers">🔥 العروض</a>
    <a href="about.html">من نحن</a>
    <a href="contact.html">✉ تواصل معنا</a>
   </div>
@@ -691,7 +691,7 @@ input:focus-visible{
     اكتشف اختياراتك في مكان واحد.
    </p>
 
-   <a href="#categories" class="main-btn">تسوق الآن 🛒</a>
+   <a href="category.html?category=offers" class="main-btn">اكتشف العروض 🛒</a>
 
   </div>
  </section>
@@ -728,6 +728,12 @@ input:focus-visible{
    <div class="emoji">💄</div>
    المكياج والتجميل
    <small>اكتشف القسم ←</small>
+  </a>
+
+  <a class="category cat6" href="category.html?category=offers">
+   <div class="emoji">🔥</div>
+   جميع العروض
+   <small>اكتشف كل المنتجات ←</small>
   </a>
 
  </section>
@@ -794,7 +800,7 @@ input:focus-visible{
     <h3>روابط سريعة</h3>
     <a href="index.html">الرئيسية</a>
     <a href="#categories">الأقسام</a>
-    <a href="#products">العروض</a>
+    <a href="category.html?category=offers">العروض</a>
     <a href="about.html">من نحن</a>
    </div>
 
@@ -1057,6 +1063,18 @@ const categoryKeywords = [
    "عنايه بالبشره",
    "عطور",
    "مستحضرات تجميل"
+  ]
+ },
+
+ {
+  id:"offers",
+  words:[
+   "العروض",
+   "عروض",
+   "كل المنتجات",
+   "جميع المنتجات",
+   "كل الاقسام",
+   "الكل"
   ]
  }
 
