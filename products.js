@@ -19,8 +19,9 @@ const ED_PRODUCTS = [
     ],
 
     price: "55 جنيه",
-oldPrice: "101.97 جنيه",
-discount: "خصم 46%",
+    oldPrice: "101.97 جنيه",
+    discount: "خصم 46%",
+
     rating: "3.8/5",
     reviews: "1,519 تقييم",
 
@@ -236,38 +237,56 @@ function edRenderProducts() {
   let products = [...ED_PRODUCTS];
 
 
-  /* HOME PAGE */
+  /* =====================================
+     HOME PAGE
+  ===================================== */
 
   if (page === "home") {
 
-    products = products.filter(product => product.featured === true);
+    products = products.filter(product =>
+      product.featured === true
+    );
 
   }
 
 
-  /* CATEGORY PAGE */
+  /* =====================================
+     CATEGORY PAGE
+  ===================================== */
 
   else {
 
-    if (categoryId !== "all") {
+    /*
+      OFFERS:
+      عرض جميع المنتجات من كل الأقسام.
+
+      ALL:
+      عرض جميع المنتجات أيضًا.
+
+      OTHER CATEGORIES:
+      عرض منتجات القسم المحدد فقط.
+    */
+
+    if (
+      categoryId !== "all" &&
+      categoryId !== "offers"
+    ) {
 
       products = products.filter(product =>
-
         product.category === categoryId
-
       );
 
     }
 
 
-    /* SEARCH */
+    /* =====================================
+       SEARCH
+    ===================================== */
 
     if (searchQuery) {
 
       products = products.filter(product =>
-
         edNormalize(product.title).includes(searchQuery)
-
       );
 
     }
@@ -275,7 +294,9 @@ function edRenderProducts() {
   }
 
 
-  /* EMPTY PRODUCTS */
+  /* =====================================
+     EMPTY PRODUCTS
+  ===================================== */
 
   if (products.length === 0) {
 
@@ -303,7 +324,9 @@ function edRenderProducts() {
   }
 
 
-  /* DISPLAY PRODUCTS */
+  /* =====================================
+     DISPLAY PRODUCTS
+  ===================================== */
 
   productList.innerHTML = products.map(edProductCard).join("");
 
